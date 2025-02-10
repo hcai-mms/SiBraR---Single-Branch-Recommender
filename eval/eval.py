@@ -216,7 +216,7 @@ def evaluate_recommender_algorithm(alg: RecommenderAlgorithm, eval_loader: DataL
                 u_repr = alg.get_user_representations(u_idxs)
                 out = alg.combine_user_item_representations(u_repr, i_repr)
 
-                batch_mask = torch.tensor(dataset.exclude_data[u_idxs.cpu()].toarray(), dtype=torch.bool)
+                batch_mask = torch.tensor(dataset.exclude_data[u_idxs.cpu().numpy()].toarray(), dtype=torch.bool)
                 out[batch_mask] = -torch.inf
 
                 evaluator.eval_batch(u_idxs, out, labels)
