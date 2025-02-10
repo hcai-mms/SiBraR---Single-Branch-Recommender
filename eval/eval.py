@@ -193,7 +193,7 @@ def evaluate_recommender_algorithm(alg: RecommenderAlgorithm, eval_loader: DataL
 
             out = alg.predict(u_idxs, i_idxs)
 
-            batch_mask = torch.tensor(dataset.exclude_data[u_idxs.cpu()].toarray(), dtype=torch.bool)
+            batch_mask = torch.tensor(dataset.exclude_data[u_idxs.cpu().numpy()].toarray(), dtype=torch.bool)
             out[batch_mask] = -torch.inf
 
             if not isinstance(out, torch.Tensor):
