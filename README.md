@@ -130,10 +130,10 @@ python run_experiment.py \
 --conf_path conf/single/algorithms/1_pop_ml1m_conf.yml
 
 # SiBraR recommender ('sbnet' in code)
-python run_experiment.py 
---algorithm sbnet 
---dataset ml1m 
---split_type random 
+python run_experiment.py \
+--algorithm sbnet \
+--dataset ml1m \
+--split_type random \
 --conf_path conf/single/algorithms/sbnet_ml1m_conf.yml
 ```
 
